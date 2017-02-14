@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+       <definition name="template" template="/WEB-INF/pages/template/template.jsp">
+              <put-attribute name="title" value="My Blog" />
+              <put-attribute name="header" value="/WEB-INF/pages/template/header.jsp" />
+              <put-attribute name="menu" value="/WEB-INF/pages/template/menu.jsp" />
+              <put-attribute name="side" value="/WEB-INF/pages/template/side.jsp" />
+              <put-attribute name="body" value="" />
+              <put-attribute name="footer" value="/WEB-INF/pages/template/footer.jsp" />
+              <put-attribute name="script" value="/WEB-INF/pages/template/script.jsp"/>
+       </definition>
+
+       <definition name="home_page" extends="template">
+              <put-attribute name="title" value="Home Page" />
+              <put-attribute name="body" value="/WEB-INF/pages/home_page.jsp" />
+       </definition>
+
+       <definition name="login" extends="template">
+              <put-attribute name="title" value="Login" />
+              <put-attribute name="body" value="/WEB-INF/pages/login.jsp" />
+       </definition>
+
+       <definition name="page" extends="template">
+              <put-attribute name="title" value="Page test" />
+              <put-attribute name="body" value="/WEB-INF/pages/page.jsp" />
+       </definition>
+
+       <definition name="article_publish" extends="template">
+              <put-attribute name="title" value="Publish" />
+              <put-attribute name="body" value="/WEB-INF/pages/publish.jsp" />
+       </definition>
+
+       <definition name="article_preview" extends="template">
+              <put-attribute name="title" value="Article preview" />
+              <put-attribute name="body" value="/WEB-INF/pages/preview.jsp" />
+       </definition>
+
+       <definition name="article_detail" extends="template">
+              <put-attribute name="title" value="Article detail" />
+              <put-attribute name="body" value="/WEB-INF/pages/article_detail.jsp" />
+       </definition>
+
+       <definition name="my_home" extends="template">
+              <put-attribute name="title" value="my home page"/>
+              <put-attribute name="body" value="/WEB-INF/pages/my_home.jsp"/>
+       </definition>
+
+       <definition name="my_article_modify" extends="template">
+              <put-attribute name="title" value="My article modify"/>
+              <put-attribute name="body" value="/WEB-INF/pages/my_article_modify.jsp"/>
+       </definition>
+
+</tiles-definitions>
