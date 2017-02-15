@@ -8,35 +8,20 @@
 
     <context:component-scan base-package="cn.maxlu"/>
 
-
-
-    <!--<context:annotation-config />-->
-    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
     <mvc:annotation-driven/>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
-    </bean>
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <property name="definitions">
-            <list>
-                <value>/WEB-INF/tiles.xml</value>
-            </list>
-        </property>
+    <mvc:resources location="/img/" mapping="/img/**"/>
+
+    <!-- html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的-->
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/views/"/>
     </bean>
 
-    <!-- aop test-->
-    <!--<bean id="targetClass" class="cn.maxlu.aop.TargetClass"/>-->
-    <!--<bean id="extendsClass" class="cn.maxlu.aop.ExtendsClass"/>-->
-    <!--<aop:aspectj-autoproxy/>-->
-    <!--<aop:config>-->
-        <!--<aop:aspect id="extendsAspect" ref="extendsClass">-->
-            <!--<aop:pointcut id="extendsPointcut" expression="execution(* cn.maxlu.aop.TargetClass.targetMethod(..))"/>-->
-            <!--<aop:before method="beforeMethod" pointcut-ref="extendsPointcut"/>-->
-            <!--<aop:after method="afterMethod" pointcut-ref="extendsPointcut"/>-->
-        <!--</aop:aspect>-->
-    <!--</aop:config>-->
-
+    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".html" />
+        <property name="order" value="0"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+    </bean>
 
     <mvc:interceptors>
         <mvc:interceptor>
